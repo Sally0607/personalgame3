@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>捉太阳</title>
+<style>
+	body{background-image: url("背景虚.png");}
+	h1{text-align: center}
+	#content{
+		width:60%;
+		height: 600px;
+		background:rgba(134,151,211,0.5) ;/*如果这里用opacity=0.5和潘通号的话，会影响div下的子元素，用RGB可以避免*/
+		border:12px #CC8485;     
+		margin:0 auto;
+	}
+	.row img{
+		width: 30%;
+		margin-left:25px;
+		margin-top:32px;
+		
+ -webkit-animation: topin 2s; /* Safari, Chrome and Opera > 12.1 */
+   -moz-animation: topin 2s; /* Firefox < 16 */
+   -ms-animation: topin 2s; /* Internet Explorer */
+   -o-animation: topin 2s; /* Opera < 12.1 */
+   animation: topin 2s;
+  }	
+   @keyframes topin {
+   from { 
+	   transform: translateY(-50px);/*下移*/
+	   opacity: 0; 
+	   }
+   to {
+	   transform: translateY(0px);
+	   opacity: 1;}
+   }
+
+	.row img:hover{
+		transform: scale(1.2,1.2);
+		filter:drop-shadow(2px 12px  5px rgba(0,0,0,0.2));
+	}
+	#playbtn{
+		margin-left:300px;
+		margin-top:30px;	
+	}
+	#playbtn:hover{
+		transform: scale(1.3,1.3);
+		filter:drop-shadow(2px 12px  5px rgba(0,0,0,0.2));/*box-shadow:2px 2px 2px 1px rgba(0,0,0,0.2);对于png图片来说，box-shadow不会按照图案的轮廓生成阴影，只能产生图片本身矩形的轮廓阴影*/
+	}
+	#mubtn{
+		margin-left:350px;
+		margin-top:15px;
+		width:2.3%;height:auto;
+	}
+	#mubtn:hover{
+		transform: scale(1.4,1.4);
+		filter:drop-shadow(2px 12px  5px rgba(0,0,0,0.2));
+	}
+	.some div{
+		dispaly:inline-block;
+		float:left;
+	}
+	#sunbtn{
+		margin-left:175px;
+		margin-top:30px;		
+	}
+	#sunbtn:hover{
+		transform: scale(1.4,1.4);
+		filter:drop-shadow(2px 12px  5px rgba(0,0,0,0.2));	
+	}
+	h5{
+		text-align: center;
+	}
+</style>
+</head>
+
+<body>
+	<h1 onclick="show()">Find the Sun</h1> 
+	<h5>找到太阳藏到哪朵云下</h5>
+	<div id="content" style="center">
+		<div class="row">
+			<img src="云朵.png" alt="" id="0" onclick="changea()">
+			<img src="云朵.png" alt="" id="1" onclick="changeb()">
+			<img src="云朵.png" alt="" id="2" onclick="changec()">
+			<img src="云朵.png" alt="" id="3" onclick="changed()">
+			<img src="云朵.png" alt="" id="4" onclick="changee()">
+			<img src="云朵.png" alt="" id="5" onclick="changef()">
+			<img src="云朵.png" alt="" id="6" onclick="changeg()">
+			<img src="云朵.png" alt="" id="7" onclick="changeh()">
+			<img src="云朵.png" alt="" id="8" onclick="changei()">
+		</div>
+	</div>
+	<div class="some">
+		
+	   <audio src="徐梦圆 - China-C.mp3" autoplay="autopaly" loop="loop" id="audio"></audio>
+	    <img src="音乐按钮.png" id="mubtn" alt="" onclick="playorPause()" title="点击暂停或播放音乐">	
+		<img src="云朵按钮.png"  onclick="document.location.reload(true);" alt="" id="playbtn">	
+		<a href="try.html">
+		<img src="云朵2.0.png"    alt="" id="sunbtn" title="点击按钮，开始游戏"></a>
+		
+		<!--<input type="button" value="Restart"    onclick="document.location.reload(true);">-->
+	   </div>
+
+	
+<script>
+
+	function playorPause(){
+		var audio=document.getElementById("audio");
+		if(audio.paused){
+			audio.paly();
+		}else if(audio.played){
+			audio.pause();
+		}
+	}
+	var oimg=document.getElementsByTagName("img");
+	do{
+		var n=Math.floor(Math.random()*oimg.length);
+	}
+	while(n==9||n==10||n==11);
+
+	function changea(){
+		 var oid=document.getElementById("0").getAttribute("id"); 
+		 var m=oid-n;
+		/*alert(oid0);
+		alert(n);
+		alert(m);验证成功*/
+		if(m==0){ 
+	        document.getElementById("0").src="太阳.png";
+			//alert("yeah");
+			alert("Congratulations on finding the sun!");
+		   }
+		else{
+			document.getElementById("0").style.visibility="hidden";
+			//alert("no");
+		   }
+	}
+	
+	function changeb(){
+		var oid=document.getElementById("1").getAttribute("id");
+		 var m=oid-n;
+		if(m==0){ 
+	        document.getElementById("1").src="太阳.png";
+			alert("Congratulations on finding the sun!");
+		   }
+		else{
+           document.getElementById("1").style.visibility="hidden";
+		   }
+	}
+	
+	function changec(){
+		var oid=document.getElementById("2").getAttribute("id");
+		 var m=oid-n;
+		if(m==0){ 
+	        document.getElementById("2").src="太阳.png";
+			alert("Congratulations on finding the sun!");
+		   }
+		else{
+           document.getElementById("2").style.visibility="hidden";
+		   }
+	}
+	function changed(){
+		var oid=document.getElementById("3").getAttribute("id");
+		 var m=oid-n;
+		if(m==0){ 
+	        document.getElementById("3").src="太阳.png";
+			alert("Congratulations on finding the sun!");
+		   }
+		else{
+           document.getElementById("3").style.visibility="hidden";
+		   }
+	}
+
+		function changee(){
+		var oid=document.getElementById("4").getAttribute("id");
+		 var m=oid-n;
+		if(m==0){ 
+	        document.getElementById("4").src="太阳.png";
+			alert("Congratulations on finding the sun!");
+		   }
+		else{
+           document.getElementById("4").style.visibility="hidden";
+		   }
+	}
+		function changef(){
+		var oid=document.getElementById("5").getAttribute("id");
+		 var m=oid-n;
+		if(m==0){ 
+	        document.getElementById("5").src="太阳.png";
+			alert("Congratulations on finding the sun!");
+		   }
+		else{
+           document.getElementById("5").style.visibility="hidden";
+		   }
+	}
+		function changeg(){
+		var oid=document.getElementById("6").getAttribute("id");
+		 var m=oid-n;
+		if(m==0){ 
+	        document.getElementById("6").src="太阳.png";
+			alert("Congratulations on finding the sun!");
+		   }
+		else{
+           document.getElementById("6").style.visibility="hidden";
+		   }
+	}
+		function changeh(){
+		var oid=document.getElementById("7").getAttribute("id");
+		 var m=oid-n;
+		if(m==0){ 
+	        document.getElementById("7").src="太阳.png";
+			alert("Congratulations on finding the sun!");
+		   }
+		else{
+           document.getElementById("7").style.visibility="hidden";
+		   }
+	}
+		function changei(){
+		var oid=document.getElementById("8").getAttribute("id");
+		 var m=oid-n;
+		if(m==0){ 
+	        document.getElementById("8").src="太阳.png";
+			alert("Congratulations on finding the sun!");
+		   }
+		else{
+           document.getElementById("8").style.visibility="hidden";
+		   }
+	}
+	
+	/*function change(){
+		var oid=this.getAttribute("id");//我本来不打算重复这么多function的，但是这里的this有问题，运行不出来。（与严格模式、this的使用方式有关）
+		alert(oid);
+		var m=oid-n;
+		if(m==0){ 
+	        document.getElementById(oid).src="太阳.png";
+		   }
+		else{
+			document.getElementById(oid).style.visibility="hidden";
+		   }
+	}*/
+	/*错误经历
+	function changeb(){
+		var oid1=document.getElementById("1").getAttribute("id");
+		if(oid1==n){ 
+	        oimg[oid1].src="太阳.png";	
+		   }
+		else{
+			oimg[oid1].style.display="none";//display不占位，会自动缩进
+		   }
+	}
+	*/
+</script>
+</body>
+</html>
